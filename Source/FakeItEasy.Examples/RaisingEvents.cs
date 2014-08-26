@@ -15,7 +15,7 @@ namespace FakeItEasy.Examples
             var widget = A.Fake<IWidget>();
 
             // When raising like this the fake object is set as sender.
-            widget.WidgetBroke += Raise.With(new WidgetEventArgs("widget name")).Now;
+            widget.WidgetBroke += Raise.With(new WidgetEventArgs("widget name"));
         }
     }
 }

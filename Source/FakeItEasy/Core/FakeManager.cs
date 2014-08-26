@@ -30,7 +30,7 @@ namespace FakeItEasy.Core
         {
             this.preUserRules = new[]
                                     {
-                                        new CallRuleMetadata { Rule = new EventRule { FakeManager = this } }
+                                        new CallRuleMetadata { Rule = new NewEventRule(this) }
                                     };
             this.allUserRulesField = new LinkedList<CallRuleMetadata>();
             this.postUserRules = new[]

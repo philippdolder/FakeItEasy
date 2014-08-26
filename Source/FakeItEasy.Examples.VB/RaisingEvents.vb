@@ -6,9 +6,9 @@ Public Class RaisingEvents
         Dim widget = A.Fake(Of IWidget)()
 
         ' Raise with the shorter syntax, works only for EventHandler(Of T).
-        AddHandler widget.WidgetBroke, Raise.With(New WidgetEventArgs("foo")).Go
+        AddHandler widget.WidgetBroke, Raise.With(New WidgetEventArgs("foo"))
 
         ' Raise with the C# syntax
-        AddHandler widget.WidgetBroke, AddressOf Raise.With(New WidgetEventArgs("foo")).Now
+        ' AddHandler widget.WidgetBroke, AddressOf Raise.With(New WidgetEventArgs("foo"))
     End Sub
 End Class

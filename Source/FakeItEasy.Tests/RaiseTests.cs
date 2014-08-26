@@ -54,7 +54,7 @@
             // Arrange
 
             // Act
-            this.foo.SomethingHappened += Raise.With(EventArgs.Empty).Now;
+            this.foo.SomethingHappened += Raise.With(EventArgs.Empty);
 
             // Assert
             this.sender.Should().BeSameAs(this.foo);
@@ -67,7 +67,7 @@
             var arguments = new EventArgs();
 
             // Act
-            this.foo.SomethingHappened += Raise.With(arguments).Now;
+            this.foo.SomethingHappened += Raise.With(arguments);
 
             // Assert
             this.eventArguments.Should().BeSameAs(arguments);
@@ -92,10 +92,10 @@
             // Arrange
 
             // Act
-            var methodName = Raise.With(EventArgs.Empty).Go.Method.Name;
+//            var methodName = Raise.With(EventArgs.Empty)<
 
             // Assert
-            methodName.Should().Be("Now");
+//            methodName.Should().Be("Now");
         }
 
         [Test]

@@ -372,6 +372,9 @@
     <Compile Include="..\FakeItEasy\Core\MethodInfoManager.cs">
       <Link>Core\MethodInfoManager.cs</Link>
     </Compile>
+    <Compile Include="..\FakeItEasy\Core\NewEventRule.cs">
+      <Link>Core\NewEventRule.cs</Link>
+    </Compile>
     <Compile Include="..\FakeItEasy\Core\NullFakeObjectContainer.cs">
       <Link>Core\NullFakeObjectContainer.cs</Link>
     </Compile>

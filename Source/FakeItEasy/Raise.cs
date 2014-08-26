@@ -2,6 +2,8 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.CompilerServices;
+    using FakeItEasy.Core;
 
     /// <summary>
     /// Allows the developer to raise an event on a faked object.
@@ -31,9 +33,9 @@
         /// <returns>
         /// A Raise(TEventArgs)-object that exposes the event handler to attach.
         /// </returns>
-        public static Raise<TEventArgs> With<TEventArgs>(TEventArgs e) where TEventArgs : EventArgs
+        public static EventHandlerWrapper<TEventArgs> With<TEventArgs>(TEventArgs e) where TEventArgs : EventArgs
         {
-            return new Raise<TEventArgs>(null, e);
+            return new EventHandlerWrapper<TEventArgs>(e);
         }
 
         /// <summary>
@@ -47,5 +49,42 @@
         {
             return new Raise<EventArgs>(null, EventArgs.Empty);
         }
+    }
+
+    public class EventHandlerWrapper<TEventArgs> where TEventArgs : EventArgs
+    {
+        private readonly TEventArgs eventArgs;
+
+        public EventHandlerWrapper(TEventArgs eventArgs)
+        {
+            this.eventArgs = eventArgs;
+        }
+
+        public static implicit operator EventHandler<TEventArgs>(EventHandlerWrapper<TEventArgs> wrapper)
+        {
+            // TODO: Raise Event
+            // Here I could raise the event, all required information is available, but I'm not able to do so with FakeItEasy's design, or I don't know how
+            return null;
+        }
+
+        public static implicit operator EventHandler(EventHandlerWrapper<TEventArgs> wrapper)
+        {
+            // TODO: Raise Event
+            // Here I could raise the event, all required information is available, but I'm not able to do so with FakeItEasy's design, or I don't know how
+            return null;
+        }
+    }
+
+    public class EventArguments
+    {
+        public EventArguments(object sender, EventArgs args)
+        {
+            this.Sender = sender;
+            this.Arguments = args;
+        }
+
+        public object Sender { get; private set; }
+
+        public EventArgs Arguments { get; private set; }
     }
 }

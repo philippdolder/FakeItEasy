@@ -120,6 +120,9 @@
     <Compile Include="..\FakeItEasy\Core\AssemblyExtensions.cs">
       <Link>Core\AssemblyExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\FakeItEasy\Core\NewEventRule.cs">
+      <Link>Core\NewEventRule.cs</Link>
+    </Compile>
     <Compile Include="..\FakeItEasy\EnumerableExtensions.cs">
       <Link>EnumerableExtensions.cs</Link>
     </Compile>
